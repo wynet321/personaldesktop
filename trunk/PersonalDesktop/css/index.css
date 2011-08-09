@@ -1,0 +1,56 @@
+div#page {
+	padding: 200px 200px 0px 200px;
+}
+.button {
+	border: 1px solid #039;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 5px 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 15px;
+	color: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0D72D2),
+		to(#0A5EC2) );
+	background: -moz-linear-gradient(center top, #0D72D2,#0A5EC2);
+	filter:progid:DXImageTransform.Microsoft.gradient ( startColorstr =
+		'#0D72D2', endColorstr = '#0A5EC2');
+    -moz-box-shadow: 0 1px 0 #4793DA inset;
+    -webkit-box-shadow: 0 1px 0 #4793DA inset;
+    -o-box-shadow: 0 1px 0 #4793DA inset;
+    box-shadow: 0 1px 0 #4793DA inset;
+    text-shadow: -1px -1px 0px #204877;
+}
+
+.text {
+	border: 1px solid #333;
+	cursor: text;
+	padding: 7px 5px;
+	width: 180px;
+	ime-mode: disabled;
+	margin: 0 0 5px;
+}
+
+div#logo {
+	width: 850px;
+	height: 200px;
+}
+
+div#content {
+	width: 850px;
+	height: 250px;
+}
+
+div#howwork {
+	width: 600px;
+	height: 200px;
+	float: left;
+}
+
+div#login {
+	width: 250px;
+	height: 200px;
+	float: right;
+	text-align: left;
+}
