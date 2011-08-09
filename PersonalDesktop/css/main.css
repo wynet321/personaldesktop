@@ -1,0 +1,31 @@
+div#titlebar {border: 1px solid #fff;
+	height: 94px;
+	width: auto;
+}
+
+div#logo {
+    height: 94px;
+	float: left;
+}
+
+div#titlemenu {
+	float: right;
+}
+
+div#main {border: 1px solid #fff;
+	height: 700px;
+	width: 1000px;
+    padding: 0px 0px 50px 0px;
+}
+
+div#sidebar {border: 1px solid #fff;
+	width: 250px;
+    height: 650px;
+	float: left;
+}
+
+div#content {
+	width: 650px;
+	height: 650px;
+	float: right;
+}
