@@ -1,29 +1,26 @@
 <?php
-// create a new cURL resource
-$ch = curl_init();
+    // create a new cURL resource
+    $ch = curl_init();
 
-// set URL and other appropriate options
-curl_setopt($ch, CURLOPT_URL, "http://sslk.bjjtgl.gov.cn/jgjww/wzcx/wzcx_result.jsp?sf=11&&hpzl=02&&hphm=NWU810&&fdjh=6010970");
-curl_setopt($ch, CURLOPT_HEADER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER,"Content-type: text/html; charset=UTF-8");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // set URL and other appropriate options
+    curl_setopt($ch, CURLOPT_URL, "http://sslk.bjjtgl.gov.cn/jgjww/wzcx/wzcx_result.jsp?sf=11&&hpzl=02&&hphm=NWU810&&fdjh=6010970");
+    curl_setopt($ch, CURLOPT_HEADER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER,"Content-type: text/html; charset=UTF-8");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //curl_setopt($ch, CURLOPT_WRITEFUNCTION, "checkready");
 
-// grab URL and pass it to the browser
-$result=iconv( "GBK", "UTF-8" , curl_exec($ch));
-//echo $result;
-//$doc=new DOMDocument();
-if(false!=$result)
-{
-	//$doc->loadHTML($result);
-}
-else
-//$doc="";
-$result="";
+    // grab URL and pass it to the browser
+    $result=iconv( "GBK", "UTF-8" , curl_exec($ch));
+    
+    // close cURL resource, and free up system resources
+    curl_close($ch);
+    if(false==$result)
+    {
+    	echo "政府网站暂停服务，请稍候再试...";//$doc->loadHTML($result);
+    }
+    elseif(false==strpos($result,"您没有未接受处理",0))
+        echo "<a href='http://sslk.bjjtgl.gov.cn/jgjww/wzcx/wzcx_result.jsp?sf=11&&hpzl=02&&hphm=NWU810&&fdjh=6010970'>倒霉！快去处理下...</a>";
+    else
+        echo "这次又让你小子逃了!";
 
-// close cURL resource, and free up system resources
-curl_close($ch);
-if(false==strpos($result,"您没有未接受处理",0))
-	echo "<div id='carillegal'>这次又让你小子逃了!</div>";
-else
-	echo "<div id='carillegal'><a href='http://sslk.bjjtgl.gov.cn/jgjww/wzcx/wzcx_result.jsp?sf=11&&hpzl=02&&hphm=NWU810&&fdjh=6010970'>倒霉！快去处理下...</a></div>";
-?> 
+?>

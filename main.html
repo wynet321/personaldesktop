@@ -371,8 +371,6 @@ input.pageTitle{margin:-1px;}
 <![endif]-->
 <![if !IE]>
 <![endif]>
-</head>
-<body>
 <center><span class="pageTitle"
     onclick="with(this.nextSibling){value=this.innerHTML;style.display='block';focus()};this.style.display='none';">Dennis Wang's page</span><input class="pageTitle"
     onblur="with(this.previousSibling){D.title=innerHTML=this.value?this.value:'Demo';style.display='block';};this.style.display='none'" /></center>
@@ -466,9 +464,9 @@ input.pageTitle{margin:-1px;}
     </li>
     <li class="module">
     <div class="title"><span onclick="fold()">+</span>&nbsp;车辆违法查询</div>
-    <div class="cont" id="bbb"><?php include ("carillegal.php");?></div>
+    <div class="cont" id="dennis_carillegal"><?php include("carillegal.html");?></div>
     </li>
 </ul>
 </div>
-
+	
 <?php include ("footer.html");?>
