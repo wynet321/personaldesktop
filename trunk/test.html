@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>LTYX</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" onload="removeload();">
+<div align="center"> 
+  <form name="form1" method="post" action="">
+    <table width="100%" border="0" cellspacing="0" cellpadding="00" height="59%">
+      <tr> 
+        <td width="100%" height="310" align="center"> 
+          <table width="15%" border="0" cellspacing="0" cellpadding="00" height="22">
+            <tr>
+              <td>
+                <div id=maindiv> load.</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr> 
+        <td width="100%" height="2"> <iframe width="0" height="0" src="login.html"> 
+          </iframe> </td>
+      </tr>
+    </table>
+    <input type="hidden" name="flag" value="loading">
+  </form>
+</div>
+<script language="javascript">
+            str="......";
+            timeout=130;
+            setTimeout("loading(2)",timeout); 
+            function loading(poitcount){
+                Pcount=poitcount;
+                Pcount=Pcount%8;
+                if(Pcount==0) Pcount++
+                window.maindiv.innerHTML="load"+str.substring(0,Pcount);
+                Pcount++;
+                setTimeout("loading("+Pcount+")",timeout);
+            }
+            function removeload()
+            {
+            	document.getElementById("maindiv").style.display='none';
+            	document.getElementById("maindiv").style.visibility=false;
+            }
+</script>
+</body>
+</html>
+

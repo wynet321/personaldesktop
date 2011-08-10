@@ -1,0 +1,14 @@
+<script type="text/javascript">
+function removeload()
+{
+    document.getElementById("carillegal_loading").style.display='none';
+    document.getElementById("carillegal_loading").style.visibility='hidden';
+    document.getElementById("carillegal").style.display='inline';
+    document.getElementById("carillegal").style.visibility='visible';
+}
+</script>
+<div id="carillegal_loading">
+    <img src="img/loading.gif" />
+</div>
+<iframe src='carillegal.php' id="carillegal" style="visibility:hidden;display:none;" onload="removeload();">
+</iframe>
