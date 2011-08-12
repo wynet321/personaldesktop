@@ -1,31 +1,46 @@
 var IE = false, FF = false, W = window, D = document, H, B, GET = "getElementsByTagName", GEI = "getElementById", qq = 0;
-function getEvent(e) {
-	var e;
-    e = e ? e:(window.event ? window.event : null);
-    return e;
-	// return window.event when using IE/Opera, return event when using firefox.
-	
+window.onload = function() {
+	B = D[GET]("body")[0];
+	H = D[GET]("html")[0];
+	Drop.init(D[GEI]("container"));
+	addEvent();
+};
+function getEvent(evt) {
+	// return window.event when using IE, return event when using firefox.
+	evt = evt || window.event;
+	return evt;
 }
-function getElement(e) {
-	// return window.event.srcElement when using IE/Opera, return
+function getElement(evt) {
+	evt = getEvent(evt);
+	// return window.event.srcElement when using IE, return
 	// event.target when using firefox.
-	var e;
-	return e.target ? (e.target.nodeType == 3 ? e.target.parentNode : e.target)
-            : e.srcElement;
-	//alert( Event.target ? (Event.target.nodeType == 3 ? Event.target.parentNode : Event.target): window.event.srcElement);
+	return evt.target ? (evt.target.nodeType == 3 ? evt.target.parentNode
+			: evt.target) : evt.srcElement;
 }
-function fold() {
-	var e; 
-	e=getEvent(); 
-	if(e)
-		element=getElement(e);
-	//var element = Event.target ? (Event.target.nodeType == 3 ? Event.target.parentNode : Event.target): window.event.srcElement;
-	
-	element = element.parentNode.parentNode;
-	element.className = element.className.indexOf("hide") > 0 ? "module"
-			: "module hide";
+function collapseContentDiv(evt) {
+	element = getElement(evt);
+	if (element) {
+		element = element.parentNode.parentNode;
+		element.className = element.className.indexOf("hide") > 0 ? "module"
+				: "module hide";
+	}
 }
 
+function addEvent() {
+	var a = D[GET]("li");
+	for ( var i = a.length - 1; i > -1; i--)
+		if (a[i].className == "module")
+			a[i].onmousedown = function(event) {
+				Drag.dragStart(event);
+			};
+	// add collapse function to each plus sign span
+	var b = document.getElementsByTagName("span");
+	for (i = b.length - 1; i > 0; i--)
+		if (b[i].className == "plussign")
+			b[i].onclick = function(event) {
+				collapseContentDiv(event);
+			};
+}
 var Drag = {
 	draging : false,
 	x : 0,
@@ -33,12 +48,7 @@ var Drag = {
 	element : null,
 	fDiv : null,
 	ghost : null,
-	addEvent : function() {
-		var a = D[GET]("li");
-		for ( var i = a.length - 1; i > -1; i--)
-			if (a[i].className == "module")
-				a[i].onmousedown = Drag.dragStart;
-	},
+
 	ix : 2,
 	iy : 7,
 	ox : 6,
@@ -48,23 +58,16 @@ var Drag = {
 	dragStart : function(e) {
 		if (Drag.draging)
 			return;
-		var e = getEvent(e);
+		e = getEvent(e);
 		element = getElement(e);
-
-		/***********************************************************************
-		 * var k,s=""; for(k in element)s+=k+" : "+element[k]+"<br/>";
-		 * D.getElementById("bbb").innerHTML=s;
-		 **********************************************************************/
 		if (element.className != "title")
 			return;
 		element = element.parentNode;
 		Drag.element = element;
-		// ���ϻ�õ�ǰ�ƶ���ģ��
 		Drag.x = e.layerX ? e.layerX + Drag.fx : (IE ? e.x + Drag.ix
 				: e.offsetX + Drag.ox);
 		Drag.y = e.layerY ? e.layerY + Drag.fy : (IE ? e.y + Drag.iy
 				: e.offsetY + Drag.oy);
-		// ��������ģ���λ��
 		Drop.measure();
 		if (e.layerX) {
 			Drag.floatIt(e);
@@ -74,18 +77,18 @@ var Drag = {
 		D.onmousemove = Drag.drag;
 		D.ondragstart = function() {
 			window.event.returnValue = false;
-		}
+		};
 		D.onselectstart = function() {
 			window.event.returnValue = false;
 		};
 		D.onselect = function() {
-			return false
+			return false;
 		};
 		D.onmouseup = element.onmouseup = Drag.dragEnd;
 		element.onmousedown = null;
 	},
 	drag : function(e) {
-		var e;
+		// var e;
 		e = getEvent(e);
 		if (!Drag.fDiv)
 			Drag.floatIt(e);// for IE & Opera
@@ -125,7 +128,7 @@ var Drag = {
 		// ��������ģ��ĸ�����
 		Drag.draging = true;
 	}
-}
+};
 var Drop = {
 	root : null,
 	index : null,
@@ -223,11 +226,11 @@ var Drop = {
 		Drop.column = currentColumn.index;
 		window.status = qq++;
 	}
-}
+};
 var webNote = {
 	obj : null,
 	canEdit : function(e) {
-		var e, element;
+		element;
 		e = getEvent(e);
 		element = getElement(e);
 		if (element.className != 'webNote')
@@ -248,16 +251,10 @@ var webNote = {
 			webNote.obj = null;
 		}
 	}
-}
+};
 
-onload = function() {
-	B = D[GET]("body")[0];
-	H = D[GET]("html")[0];
-	Drop.init(D[GEI]("container"));
-	Drag.addEvent();
-}
 function statu(e) {
-	var e, element;
+	// var e, element;
 	element = getElement(e);
 	var aa = D.getElementById("aaa");
 	aa.innerHTML = "e.xy:(" + e.x + "," + e.y + ")<br/>e.offsetXY:("
@@ -265,4 +262,4 @@ function statu(e) {
 			+ "," + e.clientY + ")<br/>element.offsetLeftTop:("
 			+ element.offsetLeft + "," + element.offsetTop
 			+ ")<br/>e.layerXY:(" + e.layerX + "," + e.layerY + ")";
-}
+};

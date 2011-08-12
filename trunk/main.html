@@ -91,38 +91,34 @@ textarea.webNote {
 	overflow: hidden;
 	list-style: none;
 	-moz-opacity: .75;
-	filter: Alpha(opacity =       75);
+	filter: Alpha(opacity = 75);
 }
 </style>
 <center>
 	<span class="pageTitle"
 		onclick="with(this.nextSibling){value=this.innerHTML;style.display='block';focus()};this.style.display='none';">Dennis
-		Wang's page 
-		</span>
-		<input class="pageTitle"
+		Wang's page </span> <input class="pageTitle"
 		onblur="with(this.previousSibling){D.title=innerHTML=this.value?this.value:'Demo';style.display='block';};this.style.display='none'" />
 </center>
 <div class="container" id="container">
 	<ul class="column">
 		<li class="module">
 			<div class="title">
-				<span onclick="fold()">+</span>&nbsp;Coodinate
+				<span class="plussign">+</span>&nbsp;Coodinate
 			</div>
-			<div class="cont" id="aaa">content</div>
-		</li>
+			<div class="content" id="aaa">content</div></li>
 		<li class="module">
 			<div class="title">
-				<span onclick="fold()">+</span>&nbsp;contentEditable
+				<span class="plussign">+</span>&nbsp;contentEditable
 			</div>
-			<div class="cont"
+			<div class="content"
 				onclick="alert('this.contentEditable:'+this.contentEditable)">click
-				here</div>
-		</li>
+				here</div></li>
 		<li class="module">
 			<div class="title">
-				<span onclick="fold()">+</span>&nbsp;long long ago
+				<span class="plussign">+</span>&nbsp;long long ago
 			</div>
-			<div class="cont">
+			<div class="content">
 				<form name="loginPage"
 					action="https://w3.ibm.com/pkmslogin.form?https://w3.ibm.com/wps/myportal"
 					method="post">
@@ -148,7 +144,8 @@ textarea.webNote {
 								<td id="sign-in-check">
 									<p>
 										<a href="//w3.ibm.com/password">Forgot your password?</a>
-									</p></td>
+									</p>
+								</td>
 							</tr>
 							<tr>
 								<td class="button-blue" id="sign-in-submit" align="right">
@@ -156,75 +153,61 @@ textarea.webNote {
 
 									<p>
 										<input value="Submit" name="submitButton" type="submit">
-									</p>
-								</td>
+									</p></td>
 							</tr>
 						</tbody>
 					</table>
 					<input id="resumeSession" value="true" name="resumeSession"
 						type="hidden">
 				</form>
-			</div>
-		</li>
+			</div></li>
 	</ul>
 	<ul class="column">
 		<li class="module">
 			<div class="title">
-				<span onclick="fold()">+</span>&nbsp;this.parentNode
+				<span class="plussign">+</span>&nbsp;this.parentNode
 			</div>
-			<div class="cont">
+			<div class="content">
 				<button
 					onclick="alert(this.parentNode.parentNode.parentNode.innerHTML)">parentNode</button>
-			</div>
-		</li>
+			</div></li>
 		<li class="module">
 			<div class="title">
-				<span onclick="fold()">+</span>&nbsp;webNote
+				<span class="plussign">+</span>&nbsp;webNote
 			</div>
-			<div class="cont">
+			<div class="content">
 				<div class="webNote" onblur="webNote.cannotEdit()"
 					onclick="webNote.canEdit(event)">
 					You can note something here.<br /> <br />
 				</div>
 				<textarea class="webNote"></textarea>
-			</div>
-		</li>
+			</div></li>
 		<li class="module">
 			<div class="title">
-				<span onclick="fold()">+</span>&nbsp;Google
+				<span class="plussign">+</span>&nbsp;Google
 			</div>
-			<div class="cont">
-				<center>
-					<a href="http://www.google.com" style="font: bold 31px/2 Arial;">Google</a>
-				</center>
-			</div>
-		</li>
+			<div class="content">
+				<a href="http://www.google.com" style="font: bold 31px/2 Arial;">Google</a>
+			</div></li>
 	</ul>
 	<ul class="column">
 		<li class="module">
 			<div class="title">
-				<span onclick="fold()">+</span>&nbsp;pia~~
+				<span class="plussign">+</span>&nbsp;pia~~
 			</div>
-			<div class="cont">
-				໤
-			</div>
-		</li>
+			<div class="content">໤</div></li>
 		<li class="module">
 			<div class="title">
-				<span onclick="fold()">+</span>&nbsp;biu~~
+				<span class="plussign">+</span>&nbsp;biu~~
 			</div>
-			<div class="cont">
-				
-			</div>
-		</li>
+			<div class="content"></div></li>
 		<li class="module">
 			<div class="title">
-				<span onclick="fold()">+</span>&nbsp;车辆违法查询
+				<span class="plussign">+</span>&nbsp;车辆违法查询
 			</div>
-			<div class="cont" id="dennis_carillegal">
+			<div class="content" id="dennis_carillegal">
 				<!--  <?php include("carillegal.html");?>-->
-			</div>
-		</li>
+			</div></li>
 	</ul>
 </div>
 
