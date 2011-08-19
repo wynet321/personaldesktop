@@ -263,3 +263,11 @@ function statu(e) {
 			+ element.offsetLeft + "," + element.offsetTop
 			+ ")<br/>e.layerXY:(" + e.layerX + "," + e.layerY + ")";
 };
+
+function removeload(divprefix)
+{
+    document.getElementById(divprefix+"_loading").style.display='none';
+    document.getElementById(divprefix+"_loading").style.visibility='hidden';
+    document.getElementById(divprefix).style.display='inline';
+    document.getElementById(divprefix).style.visibility='visible';
+}

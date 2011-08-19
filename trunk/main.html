@@ -1,122 +1,33 @@
 <?php include ("header.html");?>
 <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
 <link rel="stylesheet" type="text/css" href="css/main.css" />
-<style type="text/css">
-body,table,td,th,input,textarea,button,select {
-	font: 13px/16px Verdana, "arial", sans-serif;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-p {
-	margin: 0px;
-}
-
-.container {
-	margin: 8px;
-}
-
-.column {
-	width: 33%;
-	margin: 0px;
-	padding: 0px;
-	float: left;
-	overflow: hidden;
-}
-
-.module {
-	margin: 5px;
-	padding: 0px;
-	border: 1px solid #dcd;
-	position: relative;
-	background-color: green;
-	list-style: none;
-}
-
-.title {
-	background-color: blue;
-	padding: 1px 0px;
-	width: 100%;
-	overflow: hidden;
-	cursor: move;
-	z-index: 0;
-	font-weight: bold;
-}
-
-.content {
-	padding: 3px;
-	overflow: hidden;
-}
-
-.hide .content {
-	display: none;
-}
-
-.pageTitle {
-	font-weight: bold;
-	text-align: center;
-}
-
-input.pageTitle {
-	display: none;
-	border: 0px;
-	padding: 0px;
-	width: 100%;
-}
-
-.webNote {
-	background-color: #ffffe0;
-	border: 1px solid #ffffe0;
-}
-
-textarea.webNote {
-	display: none;
-	overflow: hidden;
-	padding: 0px;
-	border: 0px;
-	padding: 0px;
-}
-
-.ghost {
-	border: 1px dashed red;
-}
-
-.float {
-	position: absolute;
-	z-index: 100;
-	margin: 0px;
-	padding: 0px;
-	overflow: hidden;
-	list-style: none;
-	-moz-opacity: .75;
-	filter: Alpha(opacity = 75);
-}
-</style>
 <center>
-	<span class="pageTitle"
-		onclick="with(this.nextSibling){value=this.innerHTML;style.display='block';focus()};this.style.display='none';">Dennis
-		Wang's page </span> <input class="pageTitle"
-		onblur="with(this.previousSibling){D.title=innerHTML=this.value?this.value:'Demo';style.display='block';};this.style.display='none'" />
+    <span class="pageTitle"
+        onclick="with(this.nextSibling){value=this.innerHTML;style.display='block';focus()};this.style.display='none';">Dennis
+        Wang's page </span> <input class="pageTitle"
+        onblur="with(this.previousSibling){D.title=innerHTML=this.value?this.value:'Demo';style.display='block';};this.style.display='none'" />
 </center>
 <div class="container" id="container">
 	<ul class="column">
 		<li class="module">
 			<div class="title">
-				<span class="plussign">+</span>&nbsp;Coodinate
+				<span class="plussign">+</span>&nbsp;天气
 			</div>
-			<div class="content" id="aaa">content</div></li>
+			<div class="content">
+				<?php include ("weather.html");?>
+			</div>
+		</li>
 		<li class="module">
 			<div class="title">
-				<span class="plussign">+</span>&nbsp;contentEditable
+				<span class="plussign">+</span>&nbsp;Mail
 			</div>
-			<div class="content"
-				onclick="alert('this.contentEditable:'+this.contentEditable)">click
-				here</div></li>
+			<div class="content">
+				<?php include("mail.html");?>
+			</div>
+		</li>
 		<li class="module">
 			<div class="title">
-				<span class="plussign">+</span>&nbsp;long long ago
+				<span class="plussign">+</span>&nbsp;IBM Intranet Login
 			</div>
 			<div class="content">
 				<form name="loginPage"
@@ -144,8 +55,7 @@ textarea.webNote {
 								<td id="sign-in-check">
 									<p>
 										<a href="//w3.ibm.com/password">Forgot your password?</a>
-									</p>
-								</td>
+									</p></td>
 							</tr>
 							<tr>
 								<td class="button-blue" id="sign-in-submit" align="right">
@@ -153,14 +63,16 @@ textarea.webNote {
 
 									<p>
 										<input value="Submit" name="submitButton" type="submit">
-									</p></td>
+									</p>
+								</td>
 							</tr>
 						</tbody>
 					</table>
 					<input id="resumeSession" value="true" name="resumeSession"
 						type="hidden">
 				</form>
-			</div></li>
+			</div>
+		</li>
 	</ul>
 	<ul class="column">
 		<li class="module">
@@ -170,7 +82,8 @@ textarea.webNote {
 			<div class="content">
 				<button
 					onclick="alert(this.parentNode.parentNode.parentNode.innerHTML)">parentNode</button>
-			</div></li>
+			</div>
+		</li>
 		<li class="module">
 			<div class="title">
 				<span class="plussign">+</span>&nbsp;webNote
@@ -181,33 +94,38 @@ textarea.webNote {
 					You can note something here.<br /> <br />
 				</div>
 				<textarea class="webNote"></textarea>
-			</div></li>
+			</div>
+		</li>
 		<li class="module">
 			<div class="title">
 				<span class="plussign">+</span>&nbsp;Google
 			</div>
 			<div class="content">
 				<a href="http://www.google.com" style="font: bold 31px/2 Arial;">Google</a>
-			</div></li>
+			</div>
+		</li>
 	</ul>
 	<ul class="column">
 		<li class="module">
 			<div class="title">
 				<span class="plussign">+</span>&nbsp;pia~~
 			</div>
-			<div class="content">໤</div></li>
+			<div class="content">໤</div>
+		</li>
 		<li class="module">
 			<div class="title">
 				<span class="plussign">+</span>&nbsp;biu~~
 			</div>
-			<div class="content"></div></li>
+			<div class="content"></div>
+		</li>
 		<li class="module">
 			<div class="title">
 				<span class="plussign">+</span>&nbsp;车辆违法查询
 			</div>
 			<div class="content" id="dennis_carillegal">
-				<!--  <?php include("carillegal.html");?>-->
-			</div></li>
+				<?php include("carillegal.html");?>
+			</div>
+		</li>
 	</ul>
 </div>
 

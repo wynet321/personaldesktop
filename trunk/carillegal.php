@@ -16,11 +16,11 @@
     curl_close($ch);
     if(false==$result)
     {
-    	echo "政府网站暂停服务，请稍候再试...";//$doc->loadHTML($result);
+    	echo "服务暂停，请稍候再试...";//$doc->loadHTML($result);
     }
     elseif(false==strpos($result,"您没有未接受处理",0))
-        echo "<a href='http://sslk.bjjtgl.gov.cn/jgjww/wzcx/wzcx_result.jsp?sf=11&&hpzl=02&&hphm=NWU810&&fdjh=6010970'>倒霉！快去处理下...</a>";
+        echo "<a href='#' onclick='window.open(\"http://sslk.bjjtgl.gov.cn/jgjww/wzcx/wzcx_result.jsp?sf=11&&hpzl=02&&hphm=NWU810&&fdjh=6010970\",\"new1\");'>倒霉！快去处理下...</a>";
     else
-        echo "这次又让你小子逃了!";
+        echo "<a href='#' onclick='window.open(\"http://sslk.bjjtgl.gov.cn/jgjww/wzcx/wzcx_result.jsp?sf=11&&hpzl=02&&hphm=NWU810&&fdjh=6010970\",\"new1\");'>这次又让你小子逃了!</a>";
 
 ?>
