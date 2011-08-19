@@ -29,3 +29,92 @@ div#content {
 	height: 650px;
 	float: right;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+p {
+    margin: 0px;
+}
+
+.container {
+    margin: 8px;
+    height: 700px;
+}
+
+.column {
+    width: 33%;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    overflow: hidden;
+}
+
+.module {
+    margin: 5px;
+    padding: 0px;
+    border: 1px solid #dcd;
+    position: relative;
+    background-color: green;
+    list-style: none;
+}
+
+.title {
+    background-color: blue;
+    padding: 1px 0px;
+    width: 100%;
+    overflow: hidden;
+    cursor: move;
+    z-index: 0;
+    font-weight: bold;
+}
+
+.content {
+    padding: 3px;
+    overflow: hidden;
+}
+
+.hide .content {
+    display: none;
+}
+
+.pageTitle {
+    font-weight: bold;
+    text-align: center;
+}
+
+input.pageTitle {
+    display: none;
+    border: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.webNote {
+    background-color: #ffffe0;
+    border: 1px solid #ffffe0;
+}
+
+textarea.webNote {
+    display: none;
+    overflow: hidden;
+    padding: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.ghost {
+    border: 1px dashed red;
+}
+
+.float {
+    position: absolute;
+    z-index: 100;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    list-style: none;
+    -moz-opacity: .75;
+    filter: Alpha(opacity = 80);
+}
